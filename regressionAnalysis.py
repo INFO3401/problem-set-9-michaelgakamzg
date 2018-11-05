@@ -49,10 +49,12 @@ class LinearAnalysis:
                 regress = LinearRegression()
                 regress.fit(x_values, y_values)
                 predictors = regress.predict(x_values)
-                points = r2_score(y_values, predictors)
-                
-                if points > best_predictor:
-                    best_predictor = points
+                score = r2_score(y_values, predictors)
+             
+#http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
+             
+                if score > best_predictor:
+                    best_predictor = score
                     self.bestX = column
     
         self.fit = best_predictor
